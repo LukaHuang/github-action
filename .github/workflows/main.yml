@@ -1,7 +1,10 @@
-on: [push]
+on:
+  push:
+    tags:
+      - 'test-mail'
 
 jobs:
-  send_testing_email_job:
+  send_test_email_job:
     runs-on: ubuntu-latest
     name: a job to send a testing email
     steps:

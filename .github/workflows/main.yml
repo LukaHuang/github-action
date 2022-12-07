@@ -9,4 +9,4 @@ jobs:
         run: echo "${{ secrets.ENV_FILE }}" > .env
       - name: sending test email
         id: test-email
-        uses: LukaHuang/mailchimp-github-action@v0.3
+        uses: LukaHuang/mailchimp-github-action@v0.4

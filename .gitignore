@@ -1,2 +1,4 @@
-node_modules
+# fix: npm dependencies can not find bug ❌
+# https://github.com/Azure/docker-login/issues/3#issuecomment-1219226332
+# node_modules/
 .env

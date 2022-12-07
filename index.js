@@ -1,7 +1,9 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const createLastCampaign = require('./createLastCampaign');
+const sendTestMail = require('./sendTestMail');
 const { getTitleList } = require('./weeklyCrawler')
+const { EMAIL } = require('./config')
 
 try {
   // `who-to-greet` input defined in action metadata file
@@ -20,7 +22,8 @@ try {
     const selectedURL = options[0]['value']
     console.log('url:', selectedURL)
     const campaignId = await createLastCampaign.run(selectedURL)
-    console.log('campaignId:', campaignId)
+    console.log('CampaignId:', campaignId)
+    sendTestMail.run(campaignId, EMAIL)
   })()
 } catch (error) {
   core.setFailed(error.message);

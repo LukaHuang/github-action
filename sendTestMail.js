@@ -14,6 +14,7 @@ mailchimp.setConfig({
 
 const run = async (campaignId, mail) => {
   try {
+    console.log('Send a testing email...')
     await mailchimp.campaigns.sendTestEmail(campaignId, {
       test_emails: [mail],
       send_type: 'html',
@@ -24,9 +25,4 @@ const run = async (campaignId, mail) => {
   }
 }
 
-rl.question('Please type a campaign id you want to send campaign: ', (campaignId) => {
-  rl.question('Please type a mail you want to recive test mail: ', (mail) => {
-    run(campaignId, mail)
-    rl.close()
-  })
-})
+module.exports = { run }

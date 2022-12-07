@@ -35,17 +35,10 @@ const run = async (weeklyUrl) => {
       html: contentWithInlineStyle,
     })
     console.log(`Success! The campaignId is: ${campaignId}`)
-    
+    return campaignId
   } catch (e) {
     console.log(e)
   }
 }
 
-;(async () => {
-  const titles = await getTitleList()
-  const options = titles.map((e) => ({ title: e.name, value: e.href })).slice(0, 3)
-  console.log(options[0])
-  const selectedURL = options[0]['value']
-  console.log('url:', selectedURL)
-  await run(selectedURL)
-})()
+module.exports = { run }
